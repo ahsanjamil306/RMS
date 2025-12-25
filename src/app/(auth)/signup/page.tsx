@@ -83,8 +83,10 @@ export default function SignupPage() {
           id: '1',
           fullName: formData.fullName,
           email: formData.email,
-          businessName: formData.businessName,
           phone: formData.phone,
+          role: 'owner' as const,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         },
         token: 'dummy-jwt-token-' + Date.now(),
       };
