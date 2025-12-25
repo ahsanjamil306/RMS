@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Building2, Search, Plus, MapPin, Clock, Download, Mail, Phone } from 'lucide-react';
+import { Building2, Search, Plus, MapPin, Clock, Download, Mail, Phone, Eye, Edit2, Trash2 } from 'lucide-react';
 import ConfirmationModal from '@/components/modals/ConfirmationModal';
 
 interface Business {
@@ -359,18 +359,27 @@ export default function BusinessesPage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-3 justify-end">
                   <button
                     onClick={() => handleViewClick(business)}
-                    className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                    title="View Details"
                   >
-                    View Details
+                    <Eye className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => handleEditClick(business)}
-                    className="flex-1 px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="p-2 text-blue-600 hover:text-blue-900 hover:bg-blue-50 rounded-lg transition-colors"
+                    title="Edit"
                   >
-                    Edit
+                    <Edit2 className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteClick(business)}
+                    className="p-2 text-red-600 hover:text-red-900 hover:bg-red-50 rounded-lg transition-colors"
+                    title="Delete"
+                  >
+                    <Trash2 className="h-5 w-5" />
                   </button>
                 </div>
               </div>

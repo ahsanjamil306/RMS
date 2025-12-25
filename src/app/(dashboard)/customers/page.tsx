@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Users, Search, Plus, Download, Mail, Phone, Trash2 } from 'lucide-react';
+import { Users, Search, Plus, Download, Mail, Phone, Trash2, Edit2, Eye } from 'lucide-react';
 import ConfirmationModal from '@/components/modals/ConfirmationModal';
 
 interface Customer {
@@ -352,24 +352,29 @@ export default function CustomersPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button
-                      onClick={() => handleViewClick(customer)}
-                      className="text-blue-600 hover:text-blue-900 mr-3"
-                    >
-                      View
-                    </button>
-                    <button
-                      onClick={() => handleEditClick(customer)}
-                      className="text-gray-600 hover:text-gray-900 mr-3"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteClick(customer)}
-                      className="text-red-600 hover:text-red-900"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => handleViewClick(customer)}
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        title="View Details"
+                      >
+                        <Eye className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => handleEditClick(customer)}
+                        className="text-blue-600 hover:text-blue-900 transition-colors"
+                        title="Edit"
+                      >
+                        <Edit2 className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteClick(customer)}
+                        className="text-red-600 hover:text-red-900 transition-colors"
+                        title="Delete"
+                      >
+                        <Trash2 className="h-5 w-5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
