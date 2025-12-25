@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Search, Plus, Filter, Download, Eye, Edit2, X } from 'lucide-react';
+import { Calendar, Search, Plus, Filter, Download } from 'lucide-react';
 import ConfirmationModal from '@/components/modals/ConfirmationModal';
 
 interface Reservation {
@@ -337,30 +337,19 @@ export default function ReservationsPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => handleViewDetails(reservation)}
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                        title="View Details"
-                      >
-                        <Eye className="h-5 w-5" />
-                      </button>
-                      <button
-                        onClick={() => handleEditClick(reservation)}
-                        className="text-blue-600 hover:text-blue-900 transition-colors"
-                        title="Edit"
-                      >
-                        <Edit2 className="h-5 w-5" />
-                      </button>
-                      <button
-                        onClick={() => handleCancelClick(reservation)}
-                        className="text-red-600 hover:text-red-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        disabled={reservation.status === 'cancelled'}
-                        title={reservation.status === 'cancelled' ? 'Already Cancelled' : 'Cancel'}
-                      >
-                        <X className="h-5 w-5" />
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => handleEditClick(reservation)}
+                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleCancelClick(reservation)}
+                      className="text-red-600 hover:text-red-900"
+                      disabled={reservation.status === 'cancelled'}
+                    >
+                      {reservation.status === 'cancelled' ? 'Cancelled' : 'Cancel'}
+                    </button>
                   </td>
                 </tr>
               ))}
